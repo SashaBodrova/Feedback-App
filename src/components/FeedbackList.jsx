@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import FeedbackItem from "./FeedbackItem"
 
-const FeedbackList = ({ feedback }) => {
+const FeedbackList = ({ feedback, handleDeleteFromApp }) => {
     return (
         <div className='feedback-list'>
             {
@@ -15,8 +15,9 @@ const FeedbackList = ({ feedback }) => {
                 // so, we need to use parentheses()
                 feedback.map(feedbackItem => (
                     <FeedbackItem
-                        key={feedbackItem.id}
-                        feedbackItem={feedbackItem}
+                        key={ feedbackItem.id }
+                        feedbackItem={ feedbackItem }
+                        handleDeleteFromList={ handleDeleteFromApp }
                     />)
                 )
             }
