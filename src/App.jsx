@@ -5,6 +5,7 @@ import FeedbackData from "./data/FeedbackData";
 import Header from "./components/Header";
 import FeedbackList from "./components/FeedbackList";
 import FeedbackStats from "./components/FeedbackStats";
+import FeedbackForm from "./components/FeedbackForm";
 
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
         <div>
             <Header />
             <div className="container">
+                <FeedbackForm />
                 <FeedbackStats feedbackArray={ feedback }/>
                 <FeedbackList
                     feedback={ feedback }
