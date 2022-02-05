@@ -6,8 +6,8 @@ const Card = ({ children, reverseStyle }) => {
         // notice how we set class through the condition
         // use {} and backticks`` in it to use JS interpolation
         // + JS common ${} syntax to set conditional expression
-        <div className={`card ${reverseStyle && 'reverse'}`}>
-            {children}
+        <div className={ `card ${reverseStyle && 'reverse'}` }>
+            { children }
         </div>
 
         // else we can use conditional style

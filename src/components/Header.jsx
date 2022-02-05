@@ -8,9 +8,9 @@ const Header = ({ text, bgColor, textColor }) => {
     }
 
     return (
-        <header style={headerStyle}>
+        <header style={ headerStyle }>
             <div className="container">
-                <h2>{text}</h2>
+                <h2>{ text }</h2>
             </div>
         </header>
     )
