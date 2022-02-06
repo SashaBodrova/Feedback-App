@@ -32,6 +32,20 @@ header {
     margin-bottom: 30px;
 }
 
+.nav-link {
+    margin-right: 20px;
+    text-decoration: none;
+    color: white;
+}
+
+.nav-link_blue {
+    color: blueviolet;
+}
+
+.active {
+    color: #ff6a95;
+}
+
 .card {
     background-color: #fff;
     color: #333;
