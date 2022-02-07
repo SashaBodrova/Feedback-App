@@ -1,14 +1,21 @@
-import React, { useState } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
+import FeedbackContext from "../context/FeedbackContext"
 
 import Card from './shared/Card'
 import Button from "./shared/Button";
 import RatingSelect from "./RatingSelect";
 
-const FeedbackForm = ({ feedbackAdd }) => {
+const FeedbackForm = () => {
     const [text, setText] = useState('')
     const [btnDisabled, setBtnDisabled] = useState(true)
     const [message, setMessage] = useState('')
     const [rating, setRating] = useState(0)
+
+    const { handleFeedbackAdd, feedbackEdit } = useContext(FeedbackContext)
+
+    useEffect(() => {
+        console.log('here')
+    }, [feedbackEdit])
 
     const handleTextChange = e => {
         let length = text.trim().length
@@ -33,11 +40,11 @@ const FeedbackForm = ({ feedbackAdd }) => {
 
         if(text.trim().length < 10) return
         const newFeedback = {
-            text: text,
-            rating: rating
+            text,
+            rating
         }
 
-        feedbackAdd(newFeedback)
+        handleFeedbackAdd(newFeedback)
 
         setText('')
     }

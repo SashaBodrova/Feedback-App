@@ -6,10 +6,10 @@ import Card from './shared/Card'
 const NavLinks = props => {
     return (
         <Card>
-            <NavLink to='/' className='nav-link' activeClassName='active'>
+            <NavLink to='/' className='nav-link' activeclassname='active'>
                 Home
             </NavLink>
-            <NavLink to='/about' className='nav-link' activeClassName='active'>
+            <NavLink to='/about' className='nav-link' activeclassname='active'>
                 About
             </NavLink>
         </Card>
