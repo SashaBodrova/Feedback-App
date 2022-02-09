@@ -163,7 +163,6 @@ input:focus {
     color: #fff;
     border: 0;
     border-radius: 8px;
-    color: #fff;
     width: 100px;
     height: 40px;
     cursor: pointer;
@@ -200,7 +199,7 @@ input:focus {
 }
 
 .about-link {
-    position: absolute;
+    position: fixed;
     bottom: 20px;
     right: 20px;
     color: #fff;

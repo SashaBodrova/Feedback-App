@@ -14,6 +14,8 @@ const FeedbackForm = () => {
     const { handleFeedbackAdd, feedbackEdit, updateFeedbackItem } = useContext(FeedbackContext)
 
     useEffect(() => {
+        if(!feedbackEdit.edit) return
+
         setBtnDisabled(false)
         setText(feedbackEdit.item.text)
         setRating(feedbackEdit.item.rating)
@@ -22,15 +24,12 @@ const FeedbackForm = () => {
     const handleTextChange = e => {
         let length = text.trim().length
         if(length === 0) {
-            // console.log(length + 1)
             setBtnDisabled(true)
             setMessage('Message should be at least 10 characters')
         } else if(length < 9) {
-            // console.log(length + 1)
             setBtnDisabled(true)
             setMessage('Message should be at least 10 characters')
         } else {
-            // console.log(length + 1)
             setBtnDisabled(false)
             setMessage(null)
         }
