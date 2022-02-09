@@ -1,7 +1,7 @@
 import React from 'react'
-import spinner from '../assets/spinner.gif.url'
+import spinner from '../assets/VAyR.gif'
 
-const Spinner = props => {
+const Spinner = () => {
     return <img
         src={spinner}
         alt='Loading...'

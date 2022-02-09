@@ -1,8 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react'
 
-import FeedbackData from "../data/FeedbackData";
-import {v4 as uuidv4} from "uuid"
-
 const FeedbackContext = createContext('')
 
 export const FeedbackProvider = ({ children }) => {
@@ -19,16 +16,24 @@ export const FeedbackProvider = ({ children }) => {
 
     // Fetch feedback
     const fetchFeedback = async () => {
-        const response = await fetch('http://localhost:5000/feedback')
-        // then we need to fetch json data
+        const response = await fetch(`/feedback?_sort=id&_order=desc`)
         const data = await response.json()
+
         setFeedback(data)
         setIsLoading(false)
     }
 
-    const handleFeedbackAdd = (feedbackItem) => {
-        feedbackItem.id = uuidv4()
-        setFeedback([feedbackItem, ...feedback])
+    const handleFeedbackAdd = async (feedbackItem) => {
+        const response = await fetch('/feedback', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(feedbackItem)
+        })
+        const data = await response.json()
+
+        setFeedback([data, ...feedback])
     }
 
     // Set item to be updated
@@ -39,14 +44,27 @@ export const FeedbackProvider = ({ children }) => {
         })
     }
 
-    const updateFeedbackItem = (id, newUpdItem) => {
+    const updateFeedbackItem = async (id, newUpdItem) => {
+        const response = await fetch(`/feedback/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newUpdItem)
+        })
+        const data = await response.json()
+
         setFeedback(feedback.map(item => item.id === id
-            ? { ...item, ...newUpdItem }
+            ? { ...item, ...data }
             : item))
     }
 
-    const deleteFeedbackItem = (receivedId) => {
+    const deleteFeedbackItem = async (receivedId) => {
         if(!window.confirm('Are you sure about that?')) return
+
+        await fetch(`/feedback/${receivedId}`, {
+            method: 'DELETE'
+        })
 
         setFeedback(
             feedback.filter(feedbackItem => feedbackItem.id !== receivedId)
