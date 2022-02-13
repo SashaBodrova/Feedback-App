@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Feedback-App/static/css/main.05b05f70.css",
+    "main.js": "/Feedback-App/static/js/main.c18f6d2c.js",
+    "static/media/VAyR.gif": "/Feedback-App/static/media/VAyR.b2a8fa3d8baba9fc720f.gif",
+    "index.html": "/Feedback-App/index.html",
+    "main.05b05f70.css.map": "/Feedback-App/static/css/main.05b05f70.css.map",
+    "main.c18f6d2c.js.map": "/Feedback-App/static/js/main.c18f6d2c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.05b05f70.css",
+    "static/js/main.c18f6d2c.js"
+  ]
+}
